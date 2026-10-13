@@ -5,7 +5,31 @@ services:
     plan: free
     healthCheckPath: /health
     envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: syfe-finance-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: syfe-finance-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: syfe-finance-db
+          property: database
+      - key: DB_USERNAME
+        fromDatabase:
+          name: syfe-finance-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: syfe-finance-db
+          property: password
       - key: DDL_AUTO
         value: update
       - key: COOKIE_SECURE
         value: "true"
+
+databases:
+  - name: syfe-finance-db
+    plan: free
