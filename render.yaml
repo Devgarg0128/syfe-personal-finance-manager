@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: syfe-personal-finance-manager
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DDL_AUTO
+        value: update
+      - key: COOKIE_SECURE
+        value: "true"
